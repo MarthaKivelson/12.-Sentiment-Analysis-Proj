@@ -211,5 +211,7 @@ cred.txt
 notebooks/
 mlruns/
 local_s3
-data/
 models/
+data/processed
+data/interim
+data/raw
