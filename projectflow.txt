@@ -53,3 +53,7 @@
 
 
 31. Add dir "tests"&"scripts" and files within. This will contain our test related scripts for CI.
+
+32. Create key token on Dagshub for auth: Go to dagshub repo > Your settings > Tokens > Generate new token
+    >> Please make sure to save token << >> capstone_test: ebaa41cc38587565fe79f614e51215d2d165c89a<<
+    >> Add this auth token to github secret&var and update on ci file

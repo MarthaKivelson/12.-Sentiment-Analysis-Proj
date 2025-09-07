@@ -37,8 +37,6 @@ jobs:
       - name: run pipeline
         env:
           CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
-          AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
-
         run: |
           dvc repro
 
