@@ -79,7 +79,7 @@ def main():
         # test_size = 0.2
         
         # df = load_data("notebooks\\data.csv")
-        s3 = s3_connection.s3_operations(os.getenv("AWS_BUCKET_NAME"), os.getenv("AWS_ACCESS_KEY_ID"), os.getenv("AWS_SECRET_ACCESS_KEY"))
+        s3 = s3_connection.s3_operations('kputtprojbuc', os.getenv("AWS_ACCESS_KEY_ID"), os.getenv("AWS_SECRET_ACCESS_KEY"))
         df = s3.fetch_file_from_s3("data.csv")
 
 
