@@ -43,6 +43,9 @@ jobs:
         run: |
           pip install -r flask_app/requirements.txt
 
+      - name: Install local src package
+        run: pip install -e .
+        
       - name: run pipeline
         env:
           CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
