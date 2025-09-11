@@ -57,3 +57,26 @@
 32. Create key token on Dagshub for auth: Go to dagshub repo > Your settings > Tokens > Generate new token
     >> Please make sure to save token << >> capstone_test: ebaa41cc38587565fe79f614e51215d2d165c89a<<
     >> Add this auth token to github secret&var and update on ci file
+
+>>>>> Moving to Docker <<<<<
+33. pip install pipreqs
+34. cd flask_app & do "pipreqs . --force"
+35. Add dockerfile and start docker-desktop in background
+    Also before proceeding make sure: [switch the mlflow server setup to param version, change cmd on dockerfile]
+36. go to root dir and: "docker build -t capstone-app:latest ."
+37. Try running the image: "docker run -p 8888:5000 capstone-app:latest"
+    - This run will give 'OSError: capstone_test environment variable is not set'...obviously
+    - alternate: docker run -p 8888:5000 -e CAPSTONE_TEST=ebaa41cc38587565fe79f614e51215d2d165c89a capstone-app:latest
+    - docker push youruser/capstone-app:latest (optional)
+    - optional: try to delete image locally and pull it from dockerhub and run (optional)
+
+
+38. Setup aws services for below secrets and variables:
+	AWS_ACCESS_KEY_ID
+	AWS_SECRET_ACCESS_KEY
+	AWS_REGION
+	ECR_REPOSITORY (capstone-proj)
+    AWS_ACCOUNT_ID
+   (Also add this permission to the IAM user: AmazonEC2ContainerRegistryFullAccess)
+
+39. Execute CICD pipeline till the stage where we build and push image to ECR.
